@@ -1,0 +1,51 @@
+
+<style>
+        *,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Lato", sans-serif;
+  line-height: 1.5;
+  color: #111;
+  font-size: 21px;
+
+}
+    h3{
+        color: red;
+        font-size: 14px;
+    }
+
+.submit{
+    margin-top: 30px;
+    border:1px  solid rgb(152, 140, 140);
+    height:40px;
+    border-radius: 30px;
+    color:black;
+}    
+</style>
+
+<h1> Login Now!!</h1>
+
+{% for message in messages %}
+<h3>{{message}}</h3>
+{% endfor %}
+<form action="login" method="POST">
+    {% csrf_token %}
+<p>username:</p>
+<input type="text" placeholder="username" name="username"/> 
+<p>password:</p>
+<input type="password" placeholder="password" name="password"/><br>
+<input class="submit" type="submit"/>
+</form>

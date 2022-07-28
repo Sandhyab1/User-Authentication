@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Document</title>
+    <style>
+        *,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Lato", sans-serif;
+  line-height: 1.5;
+  color: #111;
+  font-size: 21px;
+
+}
+
+button{
+    background-color: rgb(170, 170, 171);
+    border:1px  solid rgb(152, 140, 140);
+    height:40px;
+    border-radius: 30px;
+    margin-bottom: 30px;
+}
+
+li{
+   list-style: none;
+}
+
+button li a{
+    color:rgb(12, 31, 13);
+    font-size: 20px;
+}
+</style>
+</head>
+<body>
+    {% if user.is_authenticated%}
+   <h1> Helloooo !!!
+    {{user.username}}</h1>
+    {% else %}
+    <h1>Helloo!</h1>
+    {% endif %}
+
+    <ul>
+    {% if user.is_authenticated%}
+    <button><li><a href="logout">logout</a></li></button>
+    {% else %}
+    <button><li><a href="login">login-in /sign-up</a></li></button><br>
+    <button><li><a href="register">Register</a></li></button>
+    {% endif %}
+    </ul>
+</body>
+</html>
